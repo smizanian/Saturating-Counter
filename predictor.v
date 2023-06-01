@@ -28,10 +28,10 @@ end
 
 always @(negedge clk) begin
     if (request) begin
-        if (count == 2'b11 || count == 2'b10) begin
-            prediction <= 1'b1;
+        if (count[1] == 1) begin
+            prediction <= 1;
         end else begin
-            prediction <= 1'b0;
+            prediction <= 0;
         end
     end
 end
