@@ -8,7 +8,7 @@ module predictor(
 
 reg [1:0] count;
 
-always @(posedge clk) begin
+always @(negedge clk) begin
     if (result) begin
         if (taken) begin
             if (count < 2'b11) begin
@@ -26,7 +26,7 @@ always @(posedge clk) begin
     end
 end
 
-always @(posedge clk) begin
+always @(negedge clk) begin
     if (request) begin
         if (count == 2'b11 || count == 2'b10) begin
             prediction <= 1'b1;
